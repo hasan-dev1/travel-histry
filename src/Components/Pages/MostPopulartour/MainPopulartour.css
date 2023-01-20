@@ -1,0 +1,10 @@
+.hidenitem{
+    display: none;
+}
+.mainimg:hover + .hidenitem{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: #282c3456;
+    
+}
