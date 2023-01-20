@@ -11,7 +11,7 @@ const DashbordHome = () => {
 
   useEffect(() => {
     setLoading(true);
-    fetch("http://localhost:5000/traveldata")
+    fetch("https://travelpoint-server.vercel.app/traveldata")
       .then((res) => res.json())
       .then((data) => {
         setTravelPlan(data[0]);

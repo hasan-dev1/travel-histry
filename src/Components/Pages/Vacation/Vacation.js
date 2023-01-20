@@ -4,19 +4,19 @@ import VacationTitle from "./VacationTitle";
 import { FcCloseUpMode } from "react-icons/fc";
 
 const Vacation = () => {
-    const data = [...Array(20)]
-    const [loading, setLoading] = useState(false)
-    const [traveldata, setTravelData] = useState()
+  const data = [...Array(20)];
+  const [loading, setLoading] = useState(false);
+  const [traveldata, setTravelData] = useState();
 
-    useEffect(()=>{
-      setLoading(true)
-      fetch(`http://localhost:5000/traveldata`)
-        .then((res) => res.json())
-        .then((data) => {
-          setTravelData(data[0]);
-          setLoading(false);
-        });
-    },[])
+  useEffect(() => {
+    setLoading(true);
+    fetch(`https://travelpoint-server.vercel.app/traveldata`)
+      .then((res) => res.json())
+      .then((data) => {
+        setTravelData(data[0]);
+        setLoading(false);
+      });
+  }, []);
 
   return (
     <div className="my-8 lg:w-3/5 lg:mx-auto mx-8">
@@ -79,7 +79,7 @@ const Vacation = () => {
             {loading ? (
               <div>Loading...</div>
             ) : (
-              traveldata?.vacation?.slice(0,6).map((item, idx) => (
+              traveldata?.vacation?.slice(0, 6).map((item, idx) => (
                 <div key={idx}>
                   <img
                     className="w-full rounded-lg lg:h-[20rem] md:h-[12rem] h-[15rem]"
@@ -103,8 +103,6 @@ const Vacation = () => {
                 </div>
               ))
             )}
-            
-          
           </div>
         </div>
         <div className="lg:flex-nowrap flex justify-center items-center flex-wrap  mt-8">
